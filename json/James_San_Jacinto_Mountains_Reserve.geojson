@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "id": 8, "properties": { "OBJECTID": 10, "Name": "James San Jacinto Mountains Reserve", "LABEL_NAME": "James San Jacinto Mountains Reserve", "Shape_Leng": 1629.13526054, "Shape_Area": 125075.444422, "ReserveID": 7, "CountyID": 33, "CampusID": 6, "COUNTY": "Riverside", "CAMPUS": "UC Riverside", "GIS_ACRES": 30.906815406, "OWNER": "Regents of the University of California", "HOLD_NOTES": null, "D_ACQ_YR": 0.0, "DATE_REVIS": "2015\/05\/02", "AgencyName": "University of California" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -116.777962503363128, 33.807056616745612 ], [ -116.77812077721434, 33.810740927996591 ], [ -116.773700647890294, 33.810815659588584 ], [ -116.773654099518552, 33.808969850865658 ], [ -116.775829665577817, 33.80892425663842 ], [ -116.775771960303629, 33.807106571682318 ], [ -116.777962503363128, 33.807056616745612 ] ] ] } }
+]
+}

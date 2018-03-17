@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "id": 17, "properties": { "OBJECTID": 19, "Name": "Oasis de Los Osos", "LABEL_NAME": "Oasis de Los Osos (James Reserve satellite)", "Shape_Leng": 3228.5372443299998, "Shape_Area": 650971.85925900005, "ReserveID": 502, "CountyID": 33, "CampusID": 6, "COUNTY": "Riverside", "CAMPUS": "UC Riverside", "GIS_ACRES": 160.85864960699999, "OWNER": "Regents of the University of California", "HOLD_NOTES": null, "D_ACQ_YR": 0.0, "DATE_REVIS": "2015\/05\/02", "AgencyName": "University of California" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -116.68889136579169, 33.895164946054734 ], [ -116.688824893071484, 33.887699687581062 ], [ -116.693047439627165, 33.887682806310231 ], [ -116.69731764376553, 33.887665589241905 ], [ -116.697369736279427, 33.895153699738152 ], [ -116.693035913735812, 33.895159520123116 ], [ -116.68889136579169, 33.895164946054734 ] ] ] } }
+]
+}

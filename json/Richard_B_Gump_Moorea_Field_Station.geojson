@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "id": 21, "properties": { "OBJECTID": 23, "Name": "Richard B. Gump Moorea Field Station", "LABEL_NAME": "Richard B. Gump Moorea Field Station (and study area)", "Shape_Leng": 998998.43276200001, "Shape_Area": 51563723964.900002, "ReserveID": 0, "CountyID": 0, "CampusID": 1, "COUNTY": null, "CAMPUS": "UC Berkeley", "GIS_ACRES": 12741673.680199999, "OWNER": "Regents of the University of California", "HOLD_NOTES": null, "D_ACQ_YR": 0.0, "DATE_REVIS": "2015\/05\/02", "AgencyName": "University of California" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -150.802293691979344, -18.496173551084127 ], [ -150.802293691950155, -16.682249754744603 ], [ -148.382223030236929, -16.682249755316143 ], [ -148.382223030520464, -18.496173550466878 ], [ -150.802293691979344, -18.496173551084127 ] ] ] } }
+]
+}
