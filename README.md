@@ -8,6 +8,7 @@ What is loaded currently:
 | Data layer name   |      owner/agency     |  source  |   remarks   |
 |----------         |:-------------:        |:------: |----------     |
 | 7.5 min topoquads |  USGS               | [Downloaded from ArcGIS Online](http://www.arcgis.com/home/item.html?id=4bf2616d2f054fbe92eadcdc9582a765) | This layer presents the geographic extent of USGS 1:24,000 topographic maps (7.5- by 7.5-minute quadrangles) for the conterminous U.S. forty-eight states and District of Columbia. It provides quadrangle name, identification number, publication data, and map coverage by state for each quadrangle.  This large-scale index grid is appropriate for display at more detailed scales.     |
+| cpad layers |  local, state, and federal  | [Downloaded CPAD layers](http://www.calands.org/) | Contained in the CPAD directory are local, state, and federal layers automatically harvested from CPAD and converted to geoJSON using scripts/runCpad.sh     |
 
 What we're working on:
 
