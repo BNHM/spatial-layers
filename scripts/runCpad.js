@@ -7,6 +7,8 @@ var path = require('path')
 var mkdirp = require('mkdirp');
 
 
+
+
 // Define a function called fetchCPAD which then returns a promise
 // that is filled with data when it is resolved
 var fetchCPAD = function(agency_type, agency_name) {
@@ -38,12 +40,12 @@ var fetchCPAD = function(agency_type, agency_name) {
     });
 }
 
+//command line response for undefined parameters
 if (process.argv.length < 4) {
-    console.log("Usage: node runCpad.js agency_name agency_type");
-    console.log("e.g. node runCpad.js State University+of+Caliifornia");
+    console.log("Usage: node run.js agency_name agency_type");
+    console.log("e.g. node run.js State University+of+Caliifornia");
     process.exit(-1);
 }
- 
 //process.argv[] returns an array of CLI arguments [execute path, fileToExecute, arg1, arg2]
 var agency_type = process.argv[2]
 var agency_name = process.argv[3]
@@ -53,69 +55,48 @@ var agency_name = process.argv[3]
 fetchCPAD(agency_type,agency_name).then(function(data) {
 	var dataObj = JSON.parse(data)
 	var results = dataObj.results
+	if (results.length == 0) {
+		console.log("Warning, no results found for agency_name = " + agency_name + ", agency_type = " + agency_type)
+		process.exit()
+	}
 	var geoJsonObj = []
 
-
         // Loop the results element of the data object.
-	// Each results is unique by unit_id and not name.
-	// Hence each name by represented multiple times here.
 	// De-duplication is handled by the catGeometries functions
-	for (let j = 0; j < results.length; j++) {
+	results.forEach(function (results){
 		//retrieve 'name' value to make .wkt name
-		var name = results[j].name;
-		var multipolygon = results[j].wkt;
-		var id = results[j].unit_id;
+		var name = results.name;
+		var multipolygon = results.wkt;
+		//if the 'name' property is null, skip over the property
+		if (name == null)return;
+		var name = name.replace(/[\.]/g,'').replace(/[\,]/g,'').replace(/[\-]/g,'')
+		.replace(/Ã±/g,'n').replace(/[\/]/g,'')
+		// use the catGeometries.appender here
+		geoJsonObj = catGeometries.appender(geoJsonObj, name, multipolygon)
+	})
 
-		//if the 'name' property is null, name the file by the unit_id
-		if (name == null){
-			var name = id
-			geoJsonObj = catGeometries.appender(geoJsonObj, id, multipolygon)
-		}else {
-		
-			// use the catGeometries.appender here
-			//var name = name.replace(/\s/g,'').replace(/[\.]/g,'').replace(/[\,]/g,'').replace(/[\-]/g,'').replace(/Ã±/g,'n')
-			var name = name.replace(/[\.]/g,'').replace(/[\,]/g,'').replace(/[\-]/g,'').replace(/Ã±/g,'n').replace(/[\/]/g,'')
-			geoJsonObj = catGeometries.appender(geoJsonObj, name, multipolygon)
-			}
-	}
-	
 	// Pack features, convert to WKT to geoJSON and de-duplicate the names
 	geoJsonObj = catGeometries.packFeatures(geoJsonObj)
-
+	//prepare command line variables to be file titles
 	agency_type = agency_type.replace(/\+/g,'')
 	agency_name = agency_name.replace(/\+/g,'')
-	var directoryName = output_dir + "/" + agency_type + "/" + agency_name
-
+	var directoryName = output_dir + "/" + agency_type + "/" + agency_name	
 	//mkdirp(dir,options,callback)
-	mkdirp(directoryName,writer);
-	
-	function writer(oops, absoluteName){
-	
-			function oops (err) {
-    			if (err) console.error(err)
-		 	else console.log('making directory' + directoryName)
-			};
-
+	mkdirp(directoryName, (err) => {
+   		if (err) throw err;
+	 	console.log('making directory ' + directoryName);	
 		// Loop JSON results
-		for (let i = 0; i < geoJsonObj.length; i++) {
-
-		//this function makes variable absoluteName available in this block 
-			(function(absoluteName){
-			//prepare to write file
-			var name = geoJsonObj[i].properties.name;
-			name = name.replace(/\s/g,'').concat('.geojson')
-			var absoluteName = directoryName + "/" + name
-		//write file	
-			fs.writeFile(absoluteName, JSON.stringify(geoJsonObj[i]) , (err) => {
-				if (err) throw err;		
-				console.log('saving ' + absoluteName);
+		geoJsonObj.forEach(function(geoJsonObj){		
+		var name = geoJsonObj.properties.name;
+		name = name.replace(/\s/g,'').concat('.geojson')
+		var absoluteName = directoryName + "/" + name
+		//write file
+		fs.writeFile(absoluteName, JSON.stringify(geoJsonObj) , (err) => { 
+			if (err) throw err;		
+			console.log('saving ' + absoluteName);
 			});	
-			
-			})(i);	
-
-		}
-	}
-	
+		});
+	})
 })
 
 
