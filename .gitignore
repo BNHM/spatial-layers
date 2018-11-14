@@ -1,4 +1,1 @@
-
-scripts/package-lock.json
-scripts/package-lock.json
-*.json
+scripts/node_modules/
