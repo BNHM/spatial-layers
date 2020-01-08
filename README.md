@@ -1,14 +1,16 @@
 # spatial-layers
 
-Contained here are KMZ, JSON, WKT (etc) Files useful for Berkeleymapper and other mapping applications at the the Berkeley Natural History Museums.
+Contained here are KMZ, JSON, WKT (etc) Files useful for Berkeleymapper, reservemapper, and other mapping applications at the the Berkeley Natural History Museums.  
 All data hosted here is understood to be publically available.
 
 What is loaded currently:
 
-| Data layer name   |      owner/agency     |  source  |   remarks   |
+| Directory Name   |      owner/agency     |  source  |   remarks   |
 |----------         |:-------------:        |:------: |----------     |
-| 7.5 min topoquads |  USGS               | [Downloaded from ArcGIS Online](http://www.arcgis.com/home/item.html?id=4bf2616d2f054fbe92eadcdc9582a765) | This layer presents the geographic extent of USGS 1:24,000 topographic maps (7.5- by 7.5-minute quadrangles) for the conterminous U.S. forty-eight states and District of Columbia. It provides quadrangle name, identification number, publication data, and map coverage by state for each quadrangle.  This large-scale index grid is appropriate for display at more detailed scales.     |
-| cpad layers |  local, state, and federal  | [Downloaded CPAD layers](http://www.calands.org/) | Contained in the CPAD directory are local, state, and federal layers automatically harvested from CPAD and converted to geoJSON using scripts/runCpad.sh     |
+| json | bnhm | digitized reserve boundaries.  unsure of source | The files in this directory are stored as geojson and named using + symbols instead of spaces with a postfix of .geojson (e.g. Younger+Lagoon.geojson) |
+| cpad |  local, state, and federal  | [Downloaded CPAD layers](http://www.calands.org/) | Contained in the CPAD directory are local, state, and federal layers automatically harvested from CPAD and converted to geoJSON using scripts/runCpad.sh     |
+| ?? |  USGS               | 7.5 min topoquads [Downloaded from ArcGIS Online](http://www.arcgis.com/home/item.html?id=4bf2616d2f054fbe92eadcdc9582a765) | This layer presents the geographic extent of USGS 1:24,000 topographic maps (7.5- by 7.5-minute quadrangles) for the conterminous U.S. forty-eight states and District of Columbia. It provides quadrangle name, identification number, publication data, and map coverage by state for each quadrangle.  This large-scale index grid is appropriate for display at more detailed scales.     |
+
 
 What we're working on:
 
