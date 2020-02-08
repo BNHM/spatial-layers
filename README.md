@@ -1,7 +1,8 @@
 # spatial-layers
 
-Contained here are KMZ, JSON, WKT (etc) Files useful for Berkeleymapper, reservemapper, and other mapping applications at the the Berkeley Natural History Museums.  
-All data hosted here is understood to be publically available.
+Contained here are KMZ, JSON, WKT (etc) files useful for [Berkeleymapper](http://berkeleymapper.berkeley.edu/), [Reservemapper](http://reservemapper.berkeley.edu/), and other biodiversity data applications such as [Arctos](https://arctos.database.museum/SpecimenSearch.cfm), with the support of the Berkeley Natural History Museums.
+
+All data hosted here is understood to be publicly available.
 
 What is loaded currently:
 
